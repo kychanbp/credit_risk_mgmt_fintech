@@ -36,3 +36,4 @@ I publish this material publicly to ensure it is general and applicable to a wid
 11. [Launching a Product in New Market (WIP)](new_market.md)
 12. [Commonly Asked Questions (WIP)](faq.md)
 13. [Knowing What We Don't Know](unknowns.md)
+14. [Useful Resources (WIP)](resources.md)
