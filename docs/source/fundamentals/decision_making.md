@@ -84,6 +84,7 @@ Similar, we define the value of taking action $a$ in state $s$ under a policy $\
 $$q_{\pi}(s, a) = \mathbb{E}_{\pi}[G_t | S_t = s, A_t = a] = \mathbb{E}_{\pi}[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | S_t = s, A_t = a]$$
 
 Again, the value functions are defined recursively.
+
 $$\begin{aligned}
 v_{\pi}(s) &= \mathbb{E}_{\pi}[G_t | S_t = s] \\
 &= \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} | S_t = s] \\
@@ -102,6 +103,7 @@ The open circle represents a state, and each solid circle represents a state-act
 I took the example from Moody's Analytics titled "Determining the Optimal Dynamic Credit Card Limit" [^2]. The paper uses MDP to formulate a framework to determine the optimal credit card limit. The state space consists of the balance band, $b$, and the behavior scores band, $s$. The action space consists of the credit limit, $l$. The reward is the sum of Loss Given Default (LGD) and profit earned if not defaulted, $(-pd(s_t)b_t + (1-pd(s_t))rb_t)$, where $r$ is the interest rate, $pd$ is the probability of default given the score band.
 
 The optimal credit limit is a policy that maximizes the expected reward.
+
 $$\pi(b_{t-1},s_{t-1}, l_t) = \sum_{b_t,s_t} p(b_t,s_t|b_{t-1},s_{t-1},l_t) \cdot (r(1-pd(s_t))b_t - pd(s_t)b_t)$$
 
 ## The Art of Credit Risk Policy Making
