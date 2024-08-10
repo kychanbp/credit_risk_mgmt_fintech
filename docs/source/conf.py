@@ -20,6 +20,13 @@ extensions = [
     'sphinx.ext.mathjax',
     'recommonmark',
 ]
+
+myst_enable_extensions = [
+    "amsmath",
+    "dollarmath",
+    # other extensions...
+]
+
 # Add source suffix for Markdown files
 source_suffix = {
     '.rst': 'restructuredtext',
