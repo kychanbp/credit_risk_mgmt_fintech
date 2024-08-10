@@ -50,7 +50,7 @@ We consider a special case which the state and action spaces are small enough fo
 
 ### The Agent-Environment Interface
 
-<img src="agent_environment_interface.png" alt="The agent-environment interaction in a MDP" width="600">
+![The agent-environment interaction in a MDP](agent_environment_interface.png)
 
 The agent-environment interface in a Markov Decision Process (MDP) is illustrated above. The agent and environment interact at each discrete time steps, $t=0,1,2,3,...$. At each time step, the agent receives a state, $S_t \in \mathcal{S}$, from the environment, where $\mathcal{S}$ is the set of all possible states. The agent then selects an action, $A_t \in \mathcal{A}(s)$ ($A$ is a function of $s$). One time step later, the agent receives a reward, $R_{t+1} \in \mathcal{R}$, and the environment transitions to a new state, $S_{t+1}$ (We use $\mathcal{R_{t+1}}$ instead of $\mathcal{R_t}$ to denote the reward due to $\mathcal{A+t}$ because it emphasizes that the next reward and next state.). The MDP ange agent together thereby give rise to a sequence or trajectory that proceeds through time: $S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, ...$. In a finte MDP, $\mathcal{S}$, $\mathcal{A}$, and $\mathcal{R}$ are finite sets. In this case, the random variables $R_t$ and $S_t$ have well-defined discrete probability distributions dependent only on the preceding state and action. The probability of each possible value of $S_{t+1}$ and $R_{t+1}$ depends only on the immediately preceding state and action. This is known as the Markov property.
 
@@ -93,7 +93,7 @@ v_{\pi}(s) &= \mathbb{E}_{\pi}[G_t | S_t = s] \\
 
 The above is the Bellman equation for $v_{\pi}(s)$. You may find it hard to proceed from the second line to the third line. I have written the explanation in my personal blog. You can find it [here](https://www.zhizhi-gewu.com/supplementary-note-of-the-derivation-of-bellman-equation-in-reinforcement-learning-an-introduction/). In short, the essence is presented in the backup diagram for $V_{\pi}$ below:
 
-<img src="backup_diagram.png" alt="Backup Diagram" width="500">
+![Backup Diagram](backup_diagram.png)
 
 The open circle represents a state, and each solid circle represents a state-action pair. The agent could take any of the actions $a$ based on its policy $\pi$. The environment will respond with a reward $r$ and move to the next state $s'$, according to some function $p$. Therefore, the value of the state $s$ under policy $\pi$ is the sum of all possibilities, from taking an action to moving to the next state and receiving a reward. The key idea is still the recursive nature of the value function. 
 

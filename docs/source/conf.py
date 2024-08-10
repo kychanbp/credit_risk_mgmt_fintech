@@ -18,16 +18,14 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
-    'recommonmark',
+    'myst_parser',
 ]
 
 myst_enable_extensions = [
     "amsmath",
     "dollarmath",
-    # other extensions...
 ]
 
-# Add source suffix for Markdown files
 source_suffix = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
