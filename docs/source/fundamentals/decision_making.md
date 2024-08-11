@@ -128,7 +128,7 @@ Coming.
 
 ## Efficient Search Algorithms
 
-RL is a framework general enough to solve decision-making problems, but the efficiency of the search algorithm is crucial. Some principles from recent research in search algorithms can be relevant to credit risk policy making. I will discuss this in the next session: [Efficient Search Algorithms](fundamentals/search_algorithms.md).
+RL is a framework general enough to solve decision-making problems, but the efficiency of the search algorithm is crucial. Some principles from recent research in search algorithms can be relevant to credit risk policy making. I will discuss this in the next session: [Efficient Search Algorithms](search_algorithms.md).
 
 ## References
 
