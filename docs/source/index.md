@@ -11,8 +11,9 @@ I publish this material publicly to ensure it is general and applicable to a wid
 ## Contents
 
 1. Fundamentals
-   1. [The Art and Science of Decision Making (WIP)](fundamentals/decision_making.md)
-   2. [Fundamentals of Bonds and Interest Rates (WIP)](fundamentals/bonds_interest_rates.md)
+   1. [The Art and Science of Decision Making](fundamentals/decision_making.md)
+   2. [Supplementary Note: Efficient Search Algorithms (WIP)](fundamentals/search_algorithms.md) 
+   3. [Fundamentals of Bonds and Interest Rates (WIP)](fundamentals/bonds_interest_rates.md)
 2. Key Objective and Its Components
    1. [The Balance Between Risk and Reward (WIP)](key_objective/risk_reward.md)
    2. [Commonly Used Risk Metrices (WIP)](key_objective/risk_metrix.md)
