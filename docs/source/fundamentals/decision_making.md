@@ -1,4 +1,4 @@
-# The Art and Science of Decision Making (WIP)
+# The Art and Science of Decision Making
 
 ## TL;DR
 
@@ -16,7 +16,7 @@ In this session, I want to share a general scientific decision-making framework 
 
 **Trial-and-error search** and **delayed rewards** are two key features that distinguish credit risk management from other forms of decision-making. Unlike supervised learning, where the correct action (or label) is known in advance, credit risk policy making requires the agent to explore uncharted territory. For instance, a policy maker might lower the approval threshold to better understand the risk-return trade-off, without knowing in advance whether this decision will yield positive or negative results.
 
-Another hallmark of credit risk policy making is the presence of delayed rewards. The consequences of a decision may not be immediately apparent; for example, the outcome of a 12-month loan can only be fully assessed after the loan term is complete. Interestingly, the loan's risk performance might appear better in the first few months compared to shorter-term loans. However, if the agent focuses solely on short-term performance and grants higher limits based on this, it could result in higher losses in the long run. Thus, each action not only influences the immediate outcome but also affects future situations and, consequently, all subsequent rewards.
+Another hallmark of credit risk policy making is the presence of delayed rewards. The consequences of a decision may not be immediately apparent; for example, granting a higher limit to a customer may lead to increased spending in immediate transactions but may also increase the predicted probability of default. The higher predicted default probability may impact your subsequent decisions, such as pricing or credit limit adjustments. Thus, each action not only influences the immediate outcome but also affects future situations and, consequently, all subsequent rewards.
 
 Credit risk policy making differs fundamentally from both supervised and unsupervised learning. In every company I’ve worked for, there has been a specialized team of Data Scientists who build credit risk models. A common question among new joiners is why these data scientists can't directly help with making credit risk policies. Sometimes, newcomers even feel inferior to the data scientists. However, the reason is that credit risk policy making is a distinct problem. It’s not about whether data scientists can solve it, but rather about the scope of their expertise, which is primarily in building supervised machine learning models. As we've discussed, credit risk policy making is neither supervised learning nor unsupervised learning (which focuses on uncovering hidden structures in data). Although credit risk models and dataset structures are valuable tools in credit risk management, they serve as inputs rather than being the problem itself. Understanding this distinction is crucial.
 
@@ -46,13 +46,15 @@ Reinforcement learning is distinct from other computational approaches because i
 
 ### Finte Markov Decision Process
 
-We consider a special case which the state and action spaces are small enough for the value function to be represented as a table. Finite Markov Decision Process (MDP) is a general problem formulation for sequential decision-making problems. It is main ideas including Bellman equations and value functions. *(I contemplate the necessity of including formal mathematics in this session. I will include the intuition behind and use mathematics to formalize some important concepts. Feel free to skip the formulae)*
+We consider a special case which the state and action spaces are small enough for the value function to be represented as a table. Finite Markov Decision Process (MDP) is a general problem formulation for sequential decision-making problems. It is main ideas including Bellman equations and value functions.
+
+I considered whether to include formal mathematics in this session. I've decided to incorporate the intuition behind key concepts and use mathematics to formalize them. However, you can feel free to skip the formulas if you prefer. Reading [The Agent-Environment Interface](#the-agent-environment-interface), and the quotes from [Returns and Episodes](#returns-and-episodes) and [Policies and Value Functions](#policies-and-value-functions) should provide a good understanding of the concepts. The example from [Moody's Analytics](#example) is also a good illustration of how MDP can be applied in credit risk policy making.
 
 ### The Agent-Environment Interface
 
 ![The agent-environment interaction in a MDP](agent_environment_interface.png)
 
-The agent-environment interface in a Markov Decision Process (MDP) is illustrated above. The agent and environment interact at each discrete time steps, $t=0,1,2,3,...$. At each time step, the agent receives a state, $S_t \in \mathcal{S}$, from the environment, where $\mathcal{S}$ is the set of all possible states. The agent then selects an action, $A_t \in \mathcal{A}(s)$ ($A$ is a function of $s$). One time step later, the agent receives a reward, $R_{t+1} \in \mathcal{R}$, and the environment transitions to a new state, $S_{t+1}$ (We use $\mathcal{R_{t+1}}$ instead of $\mathcal{R_t}$ to denote the reward due to $\mathcal{A+t}$ because it emphasizes that the next reward and next state.). The MDP ange agent together thereby give rise to a sequence or trajectory that proceeds through time: $S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, ...$. In a finte MDP, $\mathcal{S}$, $\mathcal{A}$, and $\mathcal{R}$ are finite sets. In this case, the random variables $R_t$ and $S_t$ have well-defined discrete probability distributions dependent only on the preceding state and action. The probability of each possible value of $S_{t+1}$ and $R_{t+1}$ depends only on the immediately preceding state and action. This is known as the Markov property.
+The agent-environment interface in a Markov Decision Process (MDP) is illustrated above. The agent and environment interact at each discrete time steps, $t=0,1,2,3,...$. At each time step, the agent receives a state, $S_t \in \mathcal{S}$, from the environment, where $\mathcal{S}$ is the set of all possible states. The agent then selects an action, $A_t \in \mathcal{A}(s)$ ($A$ is a function of $s$). One time step later, the agent receives a reward, $R_{t+1} \in \mathcal{R}$, and the environment transitions to a new state, $S_{t+1}$ (We use $\mathcal{R_{t+1}}$ instead of $\mathcal{R_t}$ to denote the reward due to $\mathcal{A_t}$ because it emphasizes that the next reward and next state.). The MDP ange agent together thereby give rise to a sequence or trajectory that proceeds through time: $S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3, ...$. In a finte MDP, $\mathcal{S}$, $\mathcal{A}$, and $\mathcal{R}$ are finite sets. In this case, the random variables $R_t$ and $S_t$ have well-defined discrete probability distributions dependent only on the preceding state and action. The probability of each possible value of $S_{t+1}$ and $R_{t+1}$ depends only on the immediately preceding state and action. This is known as the Markov property.
 
 The boundary between agent and environment is not always clear. The general rule for distinguishing between the two is to define anything that cannot be changed arbitrarily by the agent as part of the environment. For example, the agent cannot change the weather, so it is considered part of the environment.
 
@@ -123,6 +125,10 @@ Another significant hurdle is the lack of integrated systems to efficiently gath
 ## Model-Free Reinforcement Learning
 
 Coming.
+
+## Efficient Search Algorithms
+
+RL is a framework general enough to solve decision-making problems, but the efficiency of the search algorithm is crucial. Some principles from recent research in search algorithms can be relevant to credit risk policy making. I will discuss this in the next session: [Efficient Search Algorithms](fundamentals/search_algorithms.md).
 
 ## References
 
