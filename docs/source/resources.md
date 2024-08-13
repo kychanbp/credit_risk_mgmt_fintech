@@ -38,18 +38,17 @@ This section provides a list of books and resources that I have found useful in 
 - Refaat, Mamdouh. Credit Risk Scorecard: Development and Implementation Using SAS. United States: Printed by Lulu.com, 2011.
 - Christodoulakis, George, and Stephen Satchell, eds. The Analytics of Risk Model Validation. 1st ed. Quantitative Finance Series. Amsterdam ; Boston: Elsevier/Academic Press, 2008.
 - Thomas, L. C., David B. Edelman, and Jonathan N. Crook. Credit Scoring and Its Applications. Second edition. Mathematics in Industry. Philadelphia: Society for Industrial and Applied Mathematics, 2017.
-
-### Validation
-
-- Scandizzo, Sergio. The Validation of Risk Models: A Handbook for Practitioners. Applied Quantitative Finance Series. Basingstoke, Hampshire: Palgrave Macmillan, 2016.
-- Meyer, Christian, and Peter Quell. Risk Model Validation: A Practical Guide to Address the Key Questions. London: Risk Books, 2012.
-- Lynch, David, Akhtar R. Siddique, and Iftekhar Hasan, eds. Validation of Risk Management Models for Financial Institutions: Theory and Practice. First edition. New York, NY: Cambridge University Press, 2022.
 - Thomas, L. C. Consumer Credit Models: Pricing, Profit, and Portfolios. Oxford ; New York: Oxford University Press, 2009.
 - Verbraken, Thomas, Cristián Bravo, Richard Weber, and Bart Baesens. ‘Development and Application of Consumer Credit Scoring Models Using Profit-Based Classification Measures’. European Journal of Operational Research 238, no. 2 (16 October 2014): 505–13. https://doi.org/10.1016/j.ejor.2014.04.001.
 - Dey, Shubhamoy. ‘Credit Limit Management Using Action-Effect Models’. In 2010 International Conference on Financial Theory and Engineering, 112–15, 2010. https://doi.org/10.1109/ICFTE.2010.5499415.
 - Liu, Ke, Kin Keung Lai, and Sy-Ming Guu. ‘Dynamic Credit Scoring on Consumer Behavior Using Fuzzy Markov Model’. In 2009 Fourth International Multi-Conference on Computing in the Global Information Technology, 235–39, 2009. https://doi.org/10.1109/ICCGI.2009.42.
 - Malik, Madhur, and Lyn C. Thomas. ‘Transition Matrix Models of Consumer Credit Ratings’. International Journal of Forecasting 28, no. 1 (January 2012): 261–72. https://doi.org/10.1016/j.ijforecast.2011.01.007.
 
+### Validation
+
+- Scandizzo, Sergio. The Validation of Risk Models: A Handbook for Practitioners. Applied Quantitative Finance Series. Basingstoke, Hampshire: Palgrave Macmillan, 2016.
+- Meyer, Christian, and Peter Quell. Risk Model Validation: A Practical Guide to Address the Key Questions. London: Risk Books, 2012.
+- Lynch, David, Akhtar R. Siddique, and Iftekhar Hasan, eds. Validation of Risk Management Models for Financial Institutions: Theory and Practice. First edition. New York, NY: Cambridge University Press, 2022.
 ### Reject Inference
 
 - Liao, Jingxian, Wei Wang, Jason Xue, and Anthony Lei. ‘Data Augmentation Methods for Reject Inference in Credit Risk Models’, 2021. https://www.semanticscholar.org/paper/Data-Augmentation-Methods-for-Reject-Inference-in-Liao-Wang/96f03f1fb147a5cb0d02cfb66df4ce316d208260.
