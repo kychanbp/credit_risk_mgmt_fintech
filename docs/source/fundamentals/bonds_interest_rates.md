@@ -70,6 +70,7 @@ According to Fisher, interest is just a price of impatience. Also, the nominal i
 Most financial professionals are familiar with the concept of the time value of money and the respective formulas to derive future value, present value, rate, etc. While Excel, Google Sheets, or financial calculators offer convenient functions, not everyone knows what equation is being solved and how it is solved.
 
 The core equation is the following:
+
 $$fv + pv \cdot (1+r)^{nper} + pmt \cdot (1+r \cdot w) \cdot \frac{(1+r)^{nper}-1}{r}=0$$
 
 where $fv$ is the future value, $pv$ is the present value, $pmt$ is the payment, $nper$ is the number of periods, $r$ is the rate, and $w$ is the type of payment (0 for end of period, 1 for beginning of period). The sign of $fv$ is the opposite of $pv$ and $pmt$.
