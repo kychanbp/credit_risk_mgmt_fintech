@@ -108,4 +108,4 @@ WIP
 
 ## References
 
-- [^1]: Fisher, Irving. The ‘Impatience Theory’ of Interest; a Study of the Causes Determining the Rate of Interest ... Bologna, Nicola Zanichelli, 1911. http://archive.org/details/cu31924013755909.
+[^1]: Fisher, Irving. The ‘Impatience Theory’ of Interest; a Study of the Causes Determining the Rate of Interest ... Bologna, Nicola Zanichelli, 1911. http://archive.org/details/cu31924013755909.
