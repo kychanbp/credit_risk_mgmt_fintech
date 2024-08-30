@@ -49,7 +49,7 @@ The interest we usually talk about at work is the nominal interest rate.
 
 ### Further Reading
 
-If you are interested in the theory of interest in mathematical terms, I recommend reading the note prepared by Jonathan Levin, an American economist and the 13th President of Stanford University, on [General Equilibrium](https://web.stanford.edu/~jdlevin/Econ%20202/General%20Equilibrium.pdf). In short, Fisher's theory of interest is a reduction to the general equilibrium model. I also found the [Financial Theory Coure from Yale University](https://oyc.yale.edu/economics/econ-251) to be very useful.
+If you are interested in the theory of interest in mathematical terms, I recommend reading the note prepared by Jonathan Levin, an American economist and the 13th President of Stanford University, on [General Equilibrium](https://web.stanford.edu/~jdlevin/Econ%20202/General%20Equilibrium.pdf). In short, Fisher's theory of interest is a reduction to the general equilibrium model. I also found the [Financial Theory Course from Yale University](https://oyc.yale.edu/economics/econ-251) to be very useful.
 
 ### The Moral Aspect of Interest Rates
 
