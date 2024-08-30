@@ -81,6 +81,7 @@ Moving $fv$ to the right side of the equation, the first term on the left is the
 - `PMT(rate, number_of_periods, present_value, [future_value], [end_or_beginning])`: solving for payment is straightforward (move all other terms except $pmt$ to the right side of the equation).
 
 Solving for $nper$ and $r$ is more complicated. Let's start with $nper$: `NPER(rate, payment_amount, present_value, [future_value], [end_or_beginning])`. Let $z$ = $pmt \cdot (1+r \cdot w)/r$. Grouping terms involving $(1 + r)^{nper}$, we have:
+
 $$\begin{aligned}
     fv - z + \left(pv + z\right) \cdot (1 + r)^{nper} &= 0 \\
     nper &= \frac{\log\left(\frac{z - fv}{pv + z}\right)}{\log(1 + r)}
