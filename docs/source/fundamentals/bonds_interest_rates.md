@@ -124,7 +124,7 @@ Consider a loan of $10,000 with a monthly interest rate of 3% and a tenure of 12
 | 11       | 1,004.62       | 946.95            | 57.67           | 975.37       |
 | 12       | 1,004.63       | 975.37            | 29.26           | 0.00         |
 
-The key concept of interest is that interest is accrued on the remaining balance of the loan. The remaining balance at month 0 is $10,000. The interest for month 1 is $10,000 * 3% = $300. The remaining balance at month 1 is $9,295.38. The interest for month 2 is $9,295.38 * 3% = $278.86, and so on.
+The key concept of interest is that interest is accrued on the remaining balance of the loan. The remaining balance at month 0 is $10,000$. The interest for month 1 is $10,000 * 3\% = 300$. The remaining balance at month 1 is $9,295.38$. The interest for month 2 is $9,295.38 * 3\% = 278.86$, and so on.
 
 To calculate the monthly payment, we can calculate using the Annuity formula, $pmt = \frac{pv \cdot r}{1-(1+r)^{-nper}}$. If you need more information about the formula, please refer to the [wikipedia page](https://en.wikipedia.org/wiki/Annuity).
 
@@ -147,13 +147,11 @@ Consider the same loan as above, but the repayment plan is as follows:
 | 11       | $883.33        | $833.33           | $50.00          | $833.37      |
 | 12       | $858.37        | $833.37           | $25.00          | $0.00        |
 
-As the name suggests, the principal payment is equal in each period. Similarly, the interest is accrued on the remaining balance of the loan. The interest for month 1 is $10,000 * 3% = $300. The remaining balance at month 1 is $10,000 - $833.33 = $9,166.67. The interest for month 2 is $9,166.67 * 3% = $275.00, and so on.
-
-Now the column names and order match the first table. Could you please provide the third table so we can align all three?
+As the name suggests, the principal payment is equal in each period. Similarly, the interest is accrued on the remaining balance of the loan. The interest for month 1 is $10,000 * 3\% = 300$. The remaining balance at month 1 is $10,000 - $833.33 = 9,166.67$. The interest for month 2 is $9,166.67 * 3\% = 275.00$, and so on.
 
 ### Interest-Only Loan (先息后本)
 
-Consider a loan of $10,000 with a monthly interest rate of 3% and a tenure of 12 months. The interest-only period is months 1 to 11. The repayment plan is as follows:
+Consider a loan of $10,000$ with a monthly interest rate of 3% and a tenure of 12 months. The interest-only period is months 1 to 11. The repayment plan is as follows:
 
 | Period # | Payment Amount | Principal Amount | Interest Amount | Balance Owed |
 |----------|----------------|-------------------|-----------------|--------------|
