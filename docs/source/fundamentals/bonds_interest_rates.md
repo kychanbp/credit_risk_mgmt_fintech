@@ -147,7 +147,7 @@ Consider the same loan as above, but the repayment plan is as follows:
 | 11       | $883.33        | $833.33           | $50.00          | $833.37      |
 | 12       | $858.37        | $833.37           | $25.00          | $0.00        |
 
-As the name suggests, the principal payment is equal in each period. Similarly, the interest is accrued on the remaining balance of the loan. The interest for month 1 is $10,000 * 3\% = 300$. The remaining balance at month 1 is $10,000 - $833.33 = 9,166.67$. The interest for month 2 is $9,166.67 * 3\% = 275.00$, and so on.
+As the name suggests, the principal payment is equal in each period. Similarly, the interest is accrued on the remaining balance of the loan. The interest for month 1 is $10,000 * 3\% = 300$. The remaining balance at month 1 is $10,000 - 833.33 = 9,166.67$. The interest for month 2 is $9,166.67 * 3\% = 275.00$, and so on.
 
 ### Interest-Only Loan (先息后本)
 
