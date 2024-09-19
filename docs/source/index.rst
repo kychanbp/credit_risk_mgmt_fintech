@@ -16,15 +16,15 @@ I publish this material publicly to ensure it is general and applicable to a wid
 
    Fundamentals <fundamentals/index>
    Key Objectives and Its Componets <key_objective/index>
-   Prediction Into the Future <prediction/index>
-   Typical Product Structures in Consumer Finance <product_structures.md>
-   Loan Origination <loan_origination/index>
-   Post Loan Account Management <post_loan_management/index>
-   The Upstream and Downstream of Credit Risk Management <upstream_downstream/index>
-   The Role of Data in Credit Risk Management <data_role.md>
-   General Data Analysis Techniques <data_analysis.md>
-   Core Infrastructure for Credit Risk Management <infrastructure.md>
-   Launching a Product in New Market <new_market.md>
-   Commonly Asked Questions <faq.md>
-   Knowing What We Don't Know <unknowns.md>
+   Prediction Into the Future (WIP) <prediction/index>
+   Typical Product Structures in Consumer Finance (WIP) <product_structures.md>
+   Loan Origination (WIP) <loan_origination/index>
+   Post Loan Account Management (WIP) <post_loan_management/index>
+   The Upstream and Downstream of Credit Risk Management (WIP) <upstream_downstream/index>
+   The Role of Data in Credit Risk Management (WIP) <data_role.md>
+   General Data Analysis Techniques (WIP) <data_analysis.md>
+   Core Infrastructure for Credit Risk Management (WIP) <infrastructure.md>
+   Launching a Product in New Market (WIP) <new_market.md>
+   Commonly Asked Questions (WIP) <faq.md>
+   Knowing What We Don't Know (WIP) <unknowns.md>
    Useful Resources <resources.md>

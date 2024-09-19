@@ -1,1 +1,1 @@
-# Typical Product Structures in Consumer Finance
+# Typical Product Structures in Consumer Finance (WIP)
