@@ -1,4 +1,4 @@
-# Key Risk Metrics
+# Commonly Used Risk Metrics
 
 ## What is Risk?
 
@@ -69,7 +69,7 @@ Default is typically defined as a missed payment for a specified number of days,
 2. Shorter observation periods (smaller $x$) allow for quicker risk assessment but may not accurately reflect long-term default patterns.
 3. The relationship between short-term and long-term default rates may not be linear or consistent across different customer segments or economic conditions.
 
-This topic will be explored in greater depth in [Estimating Long-term Impact from Short-term Outcome](prediction/long_term_impact.md).
+This topic will be explored in greater depth in [Estimating Long-term Impact from Short-term Outcome](../prediction/long_term_impact.md).
 
 ### Unit of Measurement
 
@@ -375,7 +375,7 @@ Similar to flow rate, roll rate is also a dynamic metric that measures the likel
 
 ### Cost of Risk (CoR)
 
-Cost of Risk (CoR) is an annualized metric that measures risk expressed as a percentage of the loan's outstanding balance. It is reported in financial statements and used in provisioning for credit loss. It will be covered in detail in [Estimating Long-term Impact from Short-term Outcome](prediction/long_term_impact.md).
+Cost of Risk (CoR) is an annualized metric that measures risk expressed as a percentage of the loan's outstanding balance. It is reported in financial statements and used in provisioning for credit loss. It will be covered in detail in [Estimating Long-term Impact from Short-term Outcome](../prediction/long_term_impact.md).
 
 ## Knowing vs. Doing
 
