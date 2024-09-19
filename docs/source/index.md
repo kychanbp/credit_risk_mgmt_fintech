@@ -16,7 +16,7 @@ I publish this material publicly to ensure it is general and applicable to a wid
    3. [Fundamentals of Interest Rates](fundamentals/bonds_interest_rates.md)
 2. Key Objective and Its Components
    1. [The Balance Between Risk and Reward (WIP)](key_objective/risk_reward.md)
-   2. [Commonly Used Risk Metrices (WIP)](key_objective/risk_metrix.md)
+   2. [Commonly Used Risk Metrices](key_objective/risk_metrix.md)
 3. Prediction Into the Future
    1. [Estimating Long-term Impact from Short-term Outcome (WIP)](prediction/long_term_impact.md)
    2. [Creating Models of the Environment (WIP)](prediction/environment_models.md)
