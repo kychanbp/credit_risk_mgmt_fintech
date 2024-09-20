@@ -26,5 +26,5 @@ I publish this material publicly to ensure it is general and applicable to a wid
    Core Infrastructure for Credit Risk Management (WIP) <infrastructure.md>
    Launching a Product in New Market (WIP) <new_market.md>
    Commonly Asked Questions (WIP) <faq.md>
-   Knowing What We Don't Know (WIP) <unknowns.md>
+   Knowing What We Don't Know <unknowns.md>
    Useful Resources <resources.md>

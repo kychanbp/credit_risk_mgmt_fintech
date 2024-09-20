@@ -1,5 +1,8 @@
 # Fundamentals of Interest Rates
 
+**Date:** September 2024
+**Last updated:** September 2024
+
 ## TL;DR
 
 - Interest rates are fundamentally about the time value of money and human impatience.

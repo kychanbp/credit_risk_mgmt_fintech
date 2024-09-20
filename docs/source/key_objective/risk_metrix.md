@@ -1,5 +1,8 @@
 # Commonly Used Risk Metrics
 
+**Date:** September 2024
+**Last updated:** September 2024
+
 ## What is Risk?
 
 Risk is a multifaceted concept that defies a single, universal definition. In Modern Portfolio Theory, for instance, risk is often equated with the variability of returns. However, this definition raises several critical questions:

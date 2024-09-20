@@ -1,5 +1,8 @@
 # The Art and Science of Decision Making
 
+**Date:** August 2024
+**Last updated:** August 2024
+
 ## TL;DR
 
 Credit risk management involves complex decision-making, often driven by experience rather than innate ability. This article explores how reinforcement learning (RL) can provide a scientific framework for these decisions, focusing on trial-and-error search and delayed rewards, which are key features of credit risk policy-making. Unlike traditional supervised learning, credit risk decisions require navigating uncertainty without immediate feedback. RL offers a structured approach to managing these challenges by optimizing policies over time, but implementing it fully in credit risk management faces hurdles, including the integration of automated systems and trust in machine-driven decisions.
