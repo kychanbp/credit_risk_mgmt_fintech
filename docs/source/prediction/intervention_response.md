@@ -4,6 +4,10 @@
 
 **Last Update:** September 2024
 
+## TL;DR
+
+You can safely ignore the following sections:
+
 ## Causation vs Association
 
 In credit risk management, distinguishing between causation and association is crucial, as teams make decisions and take actions (interventions) that can alter the system and distribution. While association indicates a relationship between variables, causation implies that one variable directly influences another. This distinction is fundamental when estimating the response to interventions.
@@ -65,12 +69,9 @@ Key aspects of the Fundamental Problem of Causal Inference include:
 
    In this table, '?' represents the unobserved (counterfactual) outcome. We can never know what would have happened to Customer A if they hadn't received a credit limit increase, or what would have happened to Customer B if they had.
 
-3. Assumptions: All methods for causal inference rely on assumptions to bridge the gap created by the Fundamental Problem. Common assumptions include:
-   - Stable Unit Treatment Value Assumption (SUTVA): The treatment of one unit doesn't affect the outcomes of others.
-   - Ignorability: Treatment assignment is independent of potential outcomes, given observed covariates.
-   - Positivity: Every unit has a non-zero probability of receiving each treatment.
-
 It's important to note that all solutions to the Fundamental Problem of Causal Inference are essentially effective methods to impute the '?' in our missing data table. These methods, such as propensity score matching, difference-in-differences, instrumental variables, and randomized controlled trials, aim to estimate what would have happened in the counterfactual scenario. While these methods can't perfectly solve the missing data problem, they provide rigorous approaches to estimate causal effects under certain assumptions.
+
+### The Bias of Using Observational Data to Estimate Causal Effects
 
 ## Causal Models
 
@@ -90,15 +91,173 @@ Understanding both frameworks provides researchers and practitioners with a rich
 
 ### Potential Outcomes Framework
 
+The Potential Outcomes Framework, also known as the Rubin Causal Model, is a fundamental approach in causal inference. Developed by Donald Rubin, this framework provides a way to define and estimate causal effects using the concept of potential outcomes.
+
+Key components of the Potential Outcomes Framework include:
+
+1. Potential Outcomes: For each unit and each possible treatment, there is a potential outcome. For example, in credit risk management:
+   - $Y(1)$: The outcome if a customer receives a credit limit increase
+   - $Y(0)$: The outcome if the same customer does not receive a credit limit increase
+
+2. Treatment Assignment: Denoted as $T$, where $T=1$ if the unit receives the treatment and $T=0$ otherwise.
+
+3. Observed Outcome: $Y = TY(1) + (1-T)Y(0)$
+
+4. Causal Effect: Defined as the difference between potential outcomes, e.g., $Y(1) - Y(0)$
+
+5. Average Treatment Effect (ATE): $E[Y(1) - Y(0)]$
+
+The framework relies on several key assumptions:
+
+- Stable Unit Treatment Value Assumption (SUTVA): The potential outcomes for any unit do not vary with the treatments assigned to other units.
+- Ignorability: Treatment assignment is independent of potential outcomes, given observed covariates.
+- Positivity: Every unit has a non-zero probability of receiving each treatment.
+
 ### Structural Causal Models
+
+Structural Causal Models (SCMs), also known as Structural Equation Models (SEMs), provide a framework for representing and analyzing causal relationships between variables. Developed by Judea Pearl and others, SCMs offer a powerful tool for understanding complex causal systems.
+
+Key components of Structural Causal Models include:
+
+1. Variables: Endogenous (determined within the model) and exogenous (determined outside the model).
+
+2. Functional Relationships: Equations that describe how variables are determined by other variables.
+
+3. Directed Acyclic Graph (DAG): A graphical representation of the causal relationships between variables.
+
+4. Structural Equations: Mathematical expressions that define each endogenous variable as a function of its direct causes and an error term.
+
+5. do-operator: A mathematical tool for intervening on variables and computing counterfactuals.
+
+Example in credit risk management:
+
+Variables:
+
+- credit_limit: The maximum amount of credit extended to a customer
+- utilization: The proportion of credit limit being used
+- bill_amt: The total amount billed to the customer
+- tenure: The duration of the loan (loan tenure)
+- acard: Application scorecard (a tool used to evaluate credit applications)
+- risk: The level of credit risk associated with the customer
+- bcard: Behavioral scorecard (a tool used to assess ongoing customer behavior)
+
+Causal Relationships:
+(Represented as directed edges in the DAG)
+
+```mermaid
+graph TD
+    acard[acard] --> credit_limit[credit_limit]
+    acard --> risk[risk]
+    bcard[bcard] --> risk
+    bill_amt[bill_amt] --> risk
+    credit_limit --> utilization[utilization]
+    credit_limit --> bill_amt
+    utilization --> bill_amt
+    utilization --> bcard
+    tenure[tenure] --> bill_amt
+```
+
+Functional Relationships:
+(Using placeholder functions to represent the relationships)
+
+- $credit\_limit = f_{credit\_limit}(acard)$
+- $risk = f_{risk}(acard, bcard, bill\_amt)$
+- $utilization = f_{utilization}(credit\_limit)$
+- $bill\_amt = f_{bill\_amt}(credit\_limit, utilization, tenure)$
+- $bcard = f_{bcard}(utilization)$
+
+These functional relationships form the structural equations of the SCM, defining how each variable is determined by its direct causes. Note that in this representation, we've removed the error terms (ε) since there is no endogenous variable.
+
+These SCMs also incorporate important graph structures and criteria that help in identifying and estimating causal effects:
+
+1. Backdoor Criterion: A set of variables that blocks all "backdoor" paths between a treatment and an outcome. Controlling for these variables allows for unbiased estimation of causal effects.
+
+   Example in credit risk:
+   risk ← utilization → bill_amt
+
+   Here, utilization satisfies the backdoor criterion for estimating the effect of bill_amt on risk. If we do not control for utilization, the effect of bill_amt on risk may be impacted by the common cause.
+
+2. Frontdoor Criterion: Used when backdoor paths are not identifiable. It involves finding an intermediate variable that mediates the entire effect of the treatment on the outcome.
+
+   Example:
+   credit_limit → utilization → risk
+   
+   Here, utilization satisfies the frontdoor criterion for estimating the effect of credit_limit on risk.
+
+3. Colliders: Variables that are common effects of two or more variables in the model. Conditioning on colliders can introduce spurious associations.
+
+   Example:
+   
+
+4. Instrumental Variables: Variables that affect the treatment but not the outcome directly, useful for estimating causal effects in the presence of unmeasured confounding.
+
+   Example:
+   acard → credit_limit → risk
+   
+   Here, acard could be an instrumental variable for estimating the effect of credit_limit on risk.
+
+5. Mediation: Analysis of direct and indirect effects of a treatment on an outcome through intermediate variables.
+
+   Example:
+   credit_limit → bill_amt → risk
+   credit_limit → risk
+   
+   Here, we can analyze both the direct effect of credit_limit on risk and the indirect effect through bill_amt.
+
+6. Explain-Away Effect: This occurs when two independent causes of a common effect become dependent when conditioning on that effect. It's also known as Berkson's paradox or selection bias.
+
+   Example in credit risk:
+   acard → credit_limit ← bcard
+
+SCMs allow for:
+
+- Counterfactual reasoning: "What if we had intervened on $X$?"
+- Mediation analysis: Understanding direct and indirect effects
+- Identification of causal effects from observational data
+
+Advantages of SCMs:
+
+- Explicit representation of causal mechanisms
+- Ability to answer a wide range of causal queries
+- Integration of domain knowledge into the model
+
+Challenges:
+
+- Requires strong assumptions about the causal structure
+- Can be complex for large systems
+- Sensitivity to model misspecification
 
 ## Treatment Effect
 
-ITE: Individual Treatment Effect
+1. ITE (Individual Treatment Effect):
+   - Measures the causal effect of a treatment on a specific individual.
+   - Represents the difference in potential outcomes for an individual under treatment vs. control.
+   - Challenging to estimate directly due to the fundamental problem of causal inference.
 
-CATE: Conditional Average Treatment Effect
+2. CATE (Conditional Average Treatment Effect):
+   - The average treatment effect for a subgroup with specific characteristics.
+   - Useful for understanding heterogeneous treatment effects across different populations.
+   - Often estimated using machine learning methods for personalized predictions.
 
-ATE: Average Treatment Effect
+3. ATE (Average Treatment Effect):
+   - The average causal effect of a treatment across the entire population.
+   - Represents the expected difference in outcomes between treated and control groups.
+   - Commonly used in randomized controlled trials and observational studies.
+
+4. LATE (Local Average Treatment Effect):
+   - The average treatment effect for compliers in instrumental variable settings.
+   - Applicable when there's imperfect compliance with treatment assignment.
+   - Provides insights into the effect of treatment on those influenced by the instrument.
+
+5. ATT (Average Treatment Effect on the Treated):
+   - The average effect of treatment specifically for those who received the treatment.
+   - Useful when treatment effects may differ between treated and untreated populations.
+   - Often relevant in policy evaluation where we want to know the impact on those who actually received an intervention.
+
+6. QTE (Quantile Treatment Effect):
+   - Measures the treatment effect at different quantiles of the outcome distribution.
+   - Useful for understanding how treatment impacts vary across the outcome spectrum.
+   - Provides a more comprehensive view of treatment effects beyond averages.
 
 Why the best estimator for the CATE is also the best estimator for the ITE?
 
@@ -109,6 +268,10 @@ Why the best estimator for the CATE is also the best estimator for the ITE?
 https://p-hunermund.com/2018/06/09/no-free-lunch-in-causal-inference/
 
 ## Estimating Treatment Effect If Randomized Controlled Trials Are Available
+
+### The Unreasonable Effectiveness of Linear Regression
+
+### Uplift Models
 
 ## Estimating Treatment Effect If Randomized Controlled Trials Are Not Available
 
@@ -134,9 +297,16 @@ https://econml.azurewebsites.net/spec/flowchart.html
 
 ### Theoretical Foundations
 
+- Morgan, Stephen L., and Christopher Winship. Counterfactuals and Causal Inference Methods and Principles for Social Research. Second edition. New York, NY: Cambridge University Press, 2015.
+
 ### Practical References
 
+- Facure, Matheus. Causal Inference in Python: Applying Causal Inference in the Tech Industry. Beijing Boston Farnham Sebastopol Tokyo: O’Reilly Media, 2023.
+
 ### For General Readers
+
+- Pearl, Judea, and Dana Mackenzie. The Book of Why: The New Science of Cause and Effect. First trade paperback edition. New York: Basic Books, 2020.
+
 
 ### Packages for Causal Inference
 
