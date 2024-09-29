@@ -329,13 +329,13 @@ RCTs address these biases by ensuring that the potential outcomes $(Y^1, Y^0)$ a
 
 By design, RCTs create comparable groups, eliminating baseline differences and ensuring that any observed differences in outcomes can be attributed to the treatment effect. This makes RCTs the gold standard for causal inference, providing a robust foundation for estimating treatment effects across various domains, including credit risk management.
 
-## No Free Lunch in Causal Inference
-
-https://p-hunermund.com/2018/06/09/no-free-lunch-in-causal-inference/
+RCTs and A/B Testing are commonly used in consumer lending to estimate the effect of a treatment on an outcome, such as the effect of a limit increase on default risk.
 
 ## Estimating Treatment Effect If Randomized Controlled Trials Are Available
 
 ### The Unreasonable Effectiveness of Linear Regression
+
+Frisch-Waugh-Lovell Theorem (FWL):
 
 ### Uplift Models
 
@@ -347,7 +347,7 @@ https://p-hunermund.com/2018/06/09/no-free-lunch-in-causal-inference/
 
 ## State-of-the-Art Approaches and Decision Flow
 
-https://econml.azurewebsites.net/spec/flowchart.html
+There are many approaches to estimate treatment effect, the following is a flow chart to choose the most appropriate method: [Treatment Effect Estimation Flowchart from EconML](https://econml.azurewebsites.net/spec/flowchart.html)
 
 ## Applications in Credit Risk Management
 
@@ -357,7 +357,50 @@ https://econml.azurewebsites.net/spec/flowchart.html
 
 ## Paradox
 
-- Simpson's Paradox
+Paradoxes challenge our intuition and inspire us to think more critically about our assumptions and methodologies. I have collected a few paradoxes that is relevant to causal inference.
+
+### Simpson's Paradox
+
+Simpson's Paradox is a statistical phenomenon where a trend appears in several groups of data but disappears or reverses when these groups are combined. This paradox highlights the importance of considering confounding variables and the potential pitfalls of aggregating data without careful consideration of underlying factors.
+
+Let's consider an example in the context of credit risk management:
+
+Suppose a bank is analyzing the effectiveness of a new credit counseling program on reducing default rates. They look at the data for two customer segments: high-risk and low-risk borrowers.
+
+| Risk Level | Program | Total Customers | Defaults | Default Rate |
+|------------|---------|-----------------|----------|--------------|
+| High Risk  | Yes     | 1000            | 200      | 20%          |
+| High Risk  | No      | 500             | 150      | 30%          |
+| Low Risk   | Yes     | 500             | 25       | 5%           |
+| Low Risk   | No      | 1000            | 40       | 4%           |
+
+Looking at each risk level separately, the program appears to be effective:
+
+- For high-risk customers, the default rate decreased from 30% to 20%.
+- For low-risk customers, the default rate increased slightly from 4% to 5%, but this could be due to random variation.
+
+However, if we aggregate the data:
+
+| Program | Total Customers | Defaults | Default Rate |
+|---------|-----------------|----------|--------------|
+| Yes     | 1500            | 225      | 15%          |
+| No      | 1500            | 190      | 12.67%       |
+
+Surprisingly, the overall default rate is higher for those who participated in the program (15%) compared to those who didn't (12.67%). This is Simpson's Paradox in action.
+
+The paradox arises because the program was disproportionately applied to high-risk customers. While it improved outcomes within each group, the aggregate result appears to show the opposite effect due to the different group sizes and baseline risk levels.
+
+This example demonstrates why it's crucial to:
+
+1. Consider confounding variables (in this case, the risk level of customers).
+2. Analyze data at appropriate levels of granularity.
+3. Be cautious when interpreting aggregated data, especially when dealing with heterogeneous groups.
+
+In credit risk management, Simpson's Paradox underscores the importance of stratified analysis and the need to control for relevant factors when assessing the effectiveness of interventions or policies. It also highlights the potential dangers of making decisions based solely on aggregate data without considering underlying group differences.
+
+### Berkson's Paradox
+
+### Lord's Paradox
 
 ## References
 
