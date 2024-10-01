@@ -266,4 +266,4 @@ In some cases, particularly for short-term loans, the effect of compounding inte
 ## References
 
 - [^1]: Fisher, Irving. The ‘Impatience Theory’ of Interest; a Study of the Causes Determining the Rate of Interest ... Bologna, Nicola Zanichelli, 1911. http://archive.org/details/cu31924013755909.
-- [^2]: [BANCO DE MEXICO Credit and Total Annual Cost (CAT)](https://www.banxico.org.mx/financial-system/d/%7BEA9AFEFE-4C5B-F294-7A07-74CABBF9FA2E%7D.pdf)
+- [^2]: BANCO DE MEXICO Credit and Total Annual Cost (CAT): (https://www.banxico.org.mx/financial-system/d/%7BEA9AFEFE-4C5B-F294-7A07-74CABBF9FA2E%7D.pdf)
