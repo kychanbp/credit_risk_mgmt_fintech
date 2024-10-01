@@ -18,7 +18,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
-    'sphinxcontrib.mermaid'
+    'sphinxcontrib.mermaid',
     'myst_parser',
 ]
 
