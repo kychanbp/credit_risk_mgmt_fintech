@@ -221,6 +221,49 @@ We can then use the Annuity formula to solve for the rate: $PV = CF \cdot \frac{
 
 It's worth noting that as $n$ (the tenure) increases, the effective interest rate may decrease. Consider a scenario where $n$ increases from 10,000 to 10,001; the $CF$ remains almost unchanged. Consequently, the second term of the equation must change very little as $n$ increases, resulting in a decrease in the effective interest rate.
 
+### Conversion Between Compounding Periods
+
+When comparing interest rates with different compounding periods, it's crucial to convert them to a common basis for accurate comparison. The Effective Annual Rate (EAR) is often used as this common basis, representing the interest rate that would be earned if compounding occurred annually.
+
+The formula to convert a non-annual interest rate to the EAR is:
+
+$$EAR = (1 + r)^n - 1$$
+
+where $r$ is the periodic interest rate and $n$ is the number of compounding periods per year.
+
+To illustrate this concept, let's consider an example:
+
+A $14,900 loan is to be repaid in 24 monthly installments of $962.33 each. The monthly interest rate is 3.85%, which satisfies the equation:
+
+$$ 14900 = \sum_{t=1}^{24} \frac{962.33}{(1+0.0385)^t} $$
+
+To calculate the equivalent annual rate ($R$), we use:
+
+$$ 14900 = \sum_{t=1}^{24} \frac{962.33}{(1+R)^{\frac{t}{12}}} $$
+
+Solving this equation yields $R = 57.36\%$.
+
+This conversion relies on the approximation $(1+R/n)^t \approx (1+R)^{\frac{t}{n}}$, where $n$ is the number of compounding periods per year (12 in this case) and $t$ is the time period.
+
+This approximation holds because:
+
+1. $(1+R/n)^t = e^{t \ln(1+R/n)}$
+2. $(1+R)^{\frac{t}{n}} = e^{\frac{t}{n} \ln(1+R)}$
+3. For small values of $x$, $\ln(1+x) \approx x$
+
+Therefore, both expressions approximate to $e^{tR/n}$.
+
+Given the approximation $(1+R/n)^t \approx (1+R)^{\frac{t}{n}}$, we can derive the general formula for converting between compounding periods:
+
+$R = (1+r)^n - 1$
+
+where $R$ is the annual rate, $r$ is the periodic rate, and $n$ is the number of periods per year.
+
+This formula allows for easy conversion between different compounding frequencies, enabling accurate comparison of interest rates across various financial products.
+
+In some cases, particularly for short-term loans, the effect of compounding interest on interest can be quite pronounced. For these situations, a simpler approximation method can be used: multiplying the periodic interest rate by the number of periods in a year. For example, with monthly compounding, we can multiply the monthly rate by 12 to estimate the annual rate. While this method is less precise than the compound interest formula, it can provide a quick and easily understandable estimate, especially useful for comparing short-term loan options or for preliminary calculations.
+
 ## References
 
-[^1]: Fisher, Irving. The ‘Impatience Theory’ of Interest; a Study of the Causes Determining the Rate of Interest ... Bologna, Nicola Zanichelli, 1911. http://archive.org/details/cu31924013755909.
+- [^1]: Fisher, Irving. The ‘Impatience Theory’ of Interest; a Study of the Causes Determining the Rate of Interest ... Bologna, Nicola Zanichelli, 1911. http://archive.org/details/cu31924013755909.
+- [^2]: [BANCO DE MEXICO Credit and Total Annual Cost (CAT)](https://www.banxico.org.mx/financial-system/d/%7BEA9AFEFE-4C5B-F294-7A07-74CABBF9FA2E%7D.pdf)
