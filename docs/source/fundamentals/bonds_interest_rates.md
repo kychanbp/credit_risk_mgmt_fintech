@@ -233,7 +233,7 @@ where $r$ is the periodic interest rate and $n$ is the number of compounding per
 
 To illustrate this concept, let's consider an example:
 
-A $14,900 loan is to be repaid in 24 monthly installments of $962.33 each. The monthly interest rate is 3.85%, which satisfies the equation:
+A $14,900$ loan is to be repaid in 24 monthly installments of $962.33$ each. The monthly interest rate is $3.85\%$, which satisfies the equation:
 
 $$ 14900 = \sum_{t=1}^{24} \frac{962.33}{(1+0.0385)^t} $$
 
