@@ -1,20 +1,27 @@
 Estimating the Response to Interventions (WIP)
 ==============================================
 
-**Date:** September 2024
+**Date:** October 2024
 
-**Last Update:** September 2024
+**Last Update:** October 2024
 
 TL;DR
 -----
 
-You can safely ignore the following sections:
+This chapter explores the critical distinction between causation and association in credit risk management, emphasizing the importance of causal inference for effective decision-making and intervention planning. Key points include:
 
-- The bias of using observational data to estimate causal effects
-- Causal Models
-- Estimating Treatment Effect If Randomized Controlled Trials Are Not Available
-- State-of-the-Art Approaches and Decision Flow
-- Paradox
+1. Causation vs. Association: Understanding why causation matters more than mere association for informed decision-making. (Recommended)
+
+2. Fundamental Problem of Causal Inference: Exploring the challenges in observing multiple treatment outcomes simultaneously. (Recommended)
+
+3. Paradoxes in Causal Inference: Examining counterintuitive phenomena like Simpson's Paradox that challenge our understanding of causal relationships. (Recommended)
+
+4. Methods for Causal Inference: Overview of techniques like RCTs, Difference-in-Differences, and Matching. (Optional)
+
+5. Advanced Topics: Discussion on uplift models and theoretical foundations. (Optional)
+
+Readers are encouraged to focus on the first two sections and the paradox section for a comprehensive understanding of the core concepts in causal inference for credit risk management.
+
 
 Causation vs Association
 ------------------------
@@ -321,8 +328,7 @@ In this section, we will explore various types of treatment effects and their de
    - Measures the treatment effect at different quantiles of the outcome distribution.
    - Useful for understanding how treatment impacts vary across the outcome spectrum.
    - Provides a more comprehensive view of treatment effects beyond averages.
-   - Formula: :math:`QTE(\tau) = Q_{Y(1)}(\tau) - Q_{Y(0)}(\tau)`
-     Where :math:`Q_{Y(1)}(\tau)` and :math:`Q_{Y(0)}(\tau)` are the :math:`\tau`-th quantiles of the potential outcomes under treatment and control, respectively.
+   - Formula: :math:`QTE(\tau) = Q_{Y(1)}(\tau) - Q_{Y(0)}(\tau)` Where :math:`Q_{Y(1)}(\tau)` and :math:`Q_{Y(0)}(\tau)` are the :math:`\tau`-th quantiles of the potential outcomes under treatment and control, respectively.
 
 In industry applications, the Individual Treatment Effect (ITE) is the most crucial treatment effect to measure, as it allows for personalized interventions tailored to individuals, such as in determining credit limits, pricing, and voucher allocations. However, the ITE is not directly observable. Instead, we typically estimate the Conditional Average Treatment Effect (CATE) based on a set of features X, and use this to make personalized treatment recommendations for groups of individuals sharing similar feature values.
 
@@ -365,17 +371,120 @@ Estimating Treatment Effect If Randomized Controlled Trials Are Available
 The Unreasonable Effectiveness of Linear Regression
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Frisch-Waugh-Lovell Theorem (FWL):
+Linear regression can be used to estimate the CATE when RCTs are available or cofounded variables are identified. The proof is based on the Frisch-Waugh-Lovell Theorem (FWL), which stats that
+
+when estimating a model of the form:
+
+.. math::
+
+   y_i = \beta_1 x_{i,1} + \beta_2 x_{i,2} + \epsilon_i
+
+then, the following estimators of :math:`\beta_1` are equivalent:
+
+- the OLS estimator obtained by regressing :math:`y` on :math:`x_1` and :math:`x_2`
+- the OLS estimator obtained by regressing :math:`y` on :math:`\tilde{x}_1`
+  - where :math:`\tilde{x}_1` is the residual from the regression of :math:`x_1` on :math:`x_2`
+- the OLS estimator obtained by regressing :math:`\tilde{y}` on :math:`\tilde{x}_1`
+  - where :math:`\tilde{y}` is the residual from the regression of :math:`y` on :math:`x_2`
+
+In other words, we have reduced multivariate regression to univariate regression.
+
+In causal inference, the goal is to estimate the causal effect of a treatment or intervention (e.g., 
+:math:`x_1`) on an outcome (e.g., :math:`y`), while accounting for confounding variables (e.g., :math:`x_2`). 
+Confounders are variables that are correlated with both the treatment and the outcome, potentially biasing 
+the estimated effect of the treatment.
+
+The FWL theorem shows that the coefficient of :math:`x_1` obtained from regressing :math:`y` on :math:`x_1` and :math:`x_2` can also be obtained by first "partialing out" :math:`x_2`. This partialing-out procedure essentially removes the variation in :math:`y` and :math:`x_1` that can be 
+explained by the confounder :math:`x_2`, thereby isolating the relationship between :math:`y` and :math:`x_1`.
 
 Uplift Models
 ~~~~~~~~~~~~~
 
+Uplift models are meta-learners that can take advantage of any supervised learning or regression method in machine learning statistics to estimate the Conditional Average Treatment Effect (CATE). Three common approaches are:
+
+1. T-Learner: This method trains two separate models, one for the treatment group and one for the control group. The CATE is then estimated as the difference between these two models' predictions.
+
+   :math:`\text{CATE}(x) = \mathbb{E}[Y|X=x, T=1] - \mathbb{E}[Y|X=x, T=0]`
+
+2. S-Learner: This approach trains a single model on all data, including the treatment indicator as a feature. The CATE is estimated by predicting outcomes with the treatment indicator set to 1 and 0, then taking the difference.
+
+   :math:`\text{CATE}(x) = \mathbb{E}[Y|X=x, T=1] - \mathbb{E}[Y|X=x, T=0]`
+
+3. X-Learner: This method combines aspects of both T and S learners. It first estimates outcomes for both groups, then calculates individual treatment effects, and finally trains a model on these effects.
+
+   Step 1: Train models on treatment and control groups
+   Step 2: Impute individual treatment effects
+   Step 3: Train final CATE model on imputed effects
+
+These approaches illustrate how uplift models leverage existing machine learning techniques to estimate heterogeneous treatment effects across different subgroups in the population.
+
 Estimating Treatment Effect If Randomized Controlled Trials Are Not Available
 -----------------------------------------------------------------------------
 
-- Matching
-- Difference-in-Differences
-- Instrumental Variables
+Difference-in-Differences
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This method is used when randomized controlled trials (RCTs) are not feasible or ethical. It compares the change in outcomes over time between a group affected by a specific intervention (the treatment group) and a group not affected by the intervention (the control group). The key assumption is that without the intervention, both groups would have followed parallel trends.
+
+  The basic DiD model can be expressed as:
+
+  .. math::
+
+    Y[it] = β0 + β1(Treatment[i]) + β2(Post[t]) + β3(Treatment[i] * Post[t]) + ε[it]
+
+  Where:
+
+  - :math:`Y[it]` is the outcome for unit :math:`i` at time :math:`t`
+  - :math:`Treatment[i]` is a dummy variable for units in the treatment group
+  - :math:`Post[t]` A dummy variable that equals 1 for the post-intervention period and 0 for the pre-intervention period. This captures any changes over time that affect both groups equally.is a dummy variable for the post-intervention period
+  - :math:`β0` is the intercept, repreenting the baseline outcome for the control group during the pre-intervention period.
+  - :math:`β1` is the coefficient for the treatment group. It measures the average difference between the treatment and control groups during the pre-intervention period.
+  - :math:`β2` is the coefficient for the post-intervention period. It measures the average change over time for the control group.
+  - :math:`β3` is the DiD estimator, representing the causal effect of the intervention
+
+  .. image:: DiD.png
+
+  However, the validity of DiD relies on the parallel trends assumption, which should be carefully assessed using pre-intervention data and sensitivity analyses.
+
+Matching
+~~~~~~~~
+
+Matching is a technique used in causal inference to estimate the effect of a treatment or intervention when randomized controlled trials are not possible. Common matching techniques include:
+
+1. Propensity Score Matching: Pairs treated and untreated units based on their probability of receiving treatment.
+
+2. Exact Matching: Matches treated units with untreated units that have identical covariate values.
+
+These methods aim to create a comparison group that is as similar as possible to the treatment group, reducing bias in treatment effect estimates.
+
+Instrumental Variables
+~~~~~~~~~~~~~~~~~~~~~~
+
+Instrumental Variables (IV) is a method used in causal inference when there are unmeasured confounders between the treatment and outcome. This approach relies on finding a variable (the instrument) that affects the treatment but does not directly affect the outcome except through its effect on the treatment.
+
+Key characteristics of a good instrumental variable:
+
+1. Relevance: The instrument must be correlated with the treatment.
+2. Exclusion restriction: The instrument affects the outcome only through its effect on the treatment.
+3. Independence: The instrument is not correlated with unmeasured confounders.
+
+Example: Health and Smoking
+
+Let's consider a study examining the causal effect of smoking on health outcomes. The challenge is that there may be unmeasured confounders (e.g., stress levels, genetic factors) that affect both smoking behavior and health outcomes.
+
+Instrument: Cigarette taxes
+
+1. Relevance: Higher cigarette taxes are likely to reduce smoking rates.
+2. Exclusion restriction: Cigarette taxes should not directly affect health outcomes except through their effect on smoking behavior.
+3. Independence: Cigarette taxes are unlikely to be correlated with individual-level confounders like stress or genetics.
+
+In this scenario, researchers could use changes in cigarette taxes across different regions or time periods as an instrument to estimate the causal effect of smoking on health outcomes. The IV approach would help mitigate the bias from unmeasured confounders that a simple observational study might face.
+
+The IV estimation typically involves two stages:
+1. Regress the treatment (smoking) on the instrument (cigarette taxes).
+2. Use the predicted values from the first stage to estimate the effect on the outcome (health).
+
+While powerful, the IV method relies heavily on the validity of the chosen instrument, which can be challenging to verify empirically.
 
 State-of-the-Art Approaches and Decision Flow
 ---------------------------------------------
@@ -385,11 +494,7 @@ There are many approaches to estimate treatment effect, the following is a flow 
 Applications in Credit Risk Management
 --------------------------------------
 
-Adjustment of Limit and Pricing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Non Performing Account Management
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In consumer loan credit risk management, the golden standard is still RCTs since it does not involve moral hazard, and sample size is large. For example, to deterine the effect of a limit increase on default risk, we can randomly assign a portion of customers to receive a limit increase and the rest to not receive it. If RCTs are not feasible, linear regression and difference-in-differences are commonly used.
 
 Paradox
 -------
@@ -412,7 +517,7 @@ Suppose a bank is analyzing the effectiveness of a new credit counseling program
 +------------+---------+-------------------+----------+--------------+
 | High Risk  | No      | 500               | 150      | 30%          |
 +------------+---------+-------------------+----------+--------------+
-| Low Risk   | Yes     | 500               | 25       | 5%           |
+| Low Risk   | Yes     | 500               | 15       | 3%           |
 +------------+---------+-------------------+----------+--------------+
 | Low Risk   | No      | 1000              | 40       | 4%           |
 +------------+---------+-------------------+----------+--------------+
@@ -420,19 +525,19 @@ Suppose a bank is analyzing the effectiveness of a new credit counseling program
 Looking at each risk level separately, the program appears to be effective:
 
 - For high-risk customers, the default rate decreased from 30% to 20%.
-- For low-risk customers, the default rate increased slightly from 4% to 5%, but this could be due to random variation.
+- For low-risk customers, the default rate decreased from 4% to 3%.
 
 However, if we aggregate the data:
 
 +---------+-------------------+----------+--------------+
 | Program | Total Customers   | Defaults | Default Rate |
 +=========+===================+==========+==============+
-| Yes     | 1500              | 225      | 15%          |
+| Yes     | 1500              | 215      | 14.33%       |
 +---------+-------------------+----------+--------------+
 | No      | 1500              | 190      | 12.67%       |
 +---------+-------------------+----------+--------------+
 
-Surprisingly, the overall default rate is higher for those who participated in the program (15%) compared to those who didn't (12.67%). This is Simpson's Paradox in action.
+Surprisingly, the overall default rate is higher for those who participated in the program (14.33%) compared to those who didn't (12.67%). This is Simpson's Paradox in action.
 
 The paradox arises because the program was disproportionately applied to high-risk customers. While it improved outcomes within each group, the aggregate result appears to show the opposite effect due to the different group sizes and baseline risk levels.
 
@@ -447,8 +552,12 @@ In credit risk management, Simpson's Paradox underscores the importance of strat
 Berkson's Paradox
 ~~~~~~~~~~~~~~~~~
 
+Readers interested in this paradox may refer to online resources.
+
 Lord's Paradox
 ~~~~~~~~~~~~~~
+
+Readers interested in this paradox may refer to online resources.
 
 References
 ----------
@@ -457,6 +566,7 @@ Theoretical Foundations
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 - Morgan, Stephen L., and Christopher Winship. Counterfactuals and Causal Inference Methods and Principles for Social Research. Second edition. New York, NY: Cambridge University Press, 2015.
+- Künzel, Sören R., Jasjeet S. Sekhon, Peter J. Bickel, and Bin Yu. ‘Meta-Learners for Estimating Heterogeneous Treatment Effects Using Machine Learning’. Proceedings of the National Academy of Sciences 116, no. 10 (5 March 2019): 4156–65. https://doi.org/10.1073/pnas.1804597116.
 
 Practical References
 ~~~~~~~~~~~~~~~~~~~~
