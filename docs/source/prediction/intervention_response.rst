@@ -1,5 +1,5 @@
-Estimating the Response to Interventions (WIP)
-==============================================
+Estimating the Response to Interventions
+========================================
 
 **Date:** October 2024
 
