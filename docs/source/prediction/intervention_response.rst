@@ -357,6 +357,8 @@ By design, RCTs create comparable groups, eliminating baseline differences and e
 
 RCTs and A/B Testing are commonly used in consumer lending to estimate the effect of a treatment on an outcome, such as the effect of a limit increase on default risk.
 
+How to design a RCT is a big topic, especially in medical research. The stakes are high, and the consequences of a failed experiment can be severe. However, in credit risk management, the stakes are lower. Therefore, I will not cover this topic in detail, but will provide a high level overview of the key considerations.
+
 Estimating Treatment Effect If Randomized Controlled Trials Are Available
 -------------------------------------------------------------------------
 
