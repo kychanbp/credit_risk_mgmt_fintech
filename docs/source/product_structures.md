@@ -1,105 +1,73 @@
-# Typical Product Structures in Consumer Finance (WIP)
+# Common Product Structures in Consumer Finance
 
-1. Credit card
-   1. 4 party model
-   2. 3 party model
-2. BNPL
-3. P2P
-4. Payday loan
-5. Peer-to-peer lending
-6. Pay in 4 installments
-7. 56 loan / 9 13 loan
-8. Title loans
-9. Store cards
-10. Personal loans
-11. Secured loans
+## Consideration of Product Structures
 
-ecosystem
-- Instant payment system
-- ecommerce
-- network
+Financial products require a careful balance between business volume (revenue) and risk (cost) from inception, which differs from typical consumer products where business models can be optimized post-launch. Establishing the right product structure is fundamental to credit business sustainability. This is particularly important because financial products have universal appeal when perceived as "free money," yet their structure - including repayment frequency and maturity - directly impacts customers' ability and likelihood to repay. Therefore, thoughtful product design that aligns business objectives with risk management is essential from the start.
 
-limit type
-- revolving
-- term
+When evaluating product structures, I consider the following key dimensions:
 
-Framework
+- **Use Case and Acquisition Channels (Frontend)**: The primary use case defines both the target user segment and user quality. Understanding this is critical for product positioning.
 
-- Source of fund
-- Limit Type
-- Repayment Plan
-  - Frequency
-  - Maturity
-  - Payment
-- Secured or unsecured
-- Interest Rate and Fees
-- Use Cases
-- Sales Channel
+- **Limit and Limit Type (Backend; Risk Management)**: These parameters determine risk exposure levels and should align closely with the intended use case.
 
----
+- **Repayment Plan (Backend; Risk Management)**: The maturity period and repayment frequency significantly influence customer repayment behavior and must be carefully structured.
 
-**Consumer Finance Products Comparison**
+- **Collateral (Backend; Risk Management)**: The presence of collateral or required down payments can effectively mitigate risk exposure.
 
-| Product                            | Source of Fund                               | Limit Type                 | Repayment Frequency       | Maturity                         | Payment Type                              | Secured/Unsecured      | Interest Rate & Fees                                              | Use Cases                              | Sales Channel                        |
-|------------------------------------|----------------------------------------------|----------------------------|---------------------------|-----------------------------------|-------------------------------------------|------------------------|--------------------------------------------------------------------|----------------------------------------|--------------------------------------|
-| **1. Credit Card (4-Party Model)** | Issuing Bank                                 | Revolving Credit           | Monthly                   | Open-ended                        | Minimum Payment                           | Unsecured               | Interest on balance, annual fees, late fees                        | General spending                      | Banks, online applications           |
-| **1. Credit Card (3-Party Model)** | Issuer (e.g., American Express)              | Revolving or Charge Card   | Monthly                   | Open-ended                        | Full balance (charge card) or minimum payment (credit card) | Unsecured               | Interest, annual fees, late fees                                  | General spending                      | Direct from issuer                   |
-| **2. BNPL**                        | BNPL Provider                                | Transaction-based          | Installments (e.g., bi-weekly) | Short-term (weeks to months)        | Fixed Installments                        | Unsecured               | Low or no interest, possible late fees                             | Retail purchases                      | At point of sale (online/in-store)   |
-| **3. P2P (Person-to-Person Loans)** | Individual Lenders                           | Agreed Amount              | Agreed Upon               | Agreed Upon                       | Agreed Payment                            | Unsecured               | May have interest or be interest-free                              | Personal loans between acquaintances | Directly between individuals         |
-| **4. Payday Loan**                 | Payday Lenders                               | Small Fixed Amount         | Lump Sum                  | Next Payday (usually 2 weeks)     | Lump Sum Payment                          | Unsecured               | Very high fees and APR                                             | Short-term cash needs                 | Storefronts, online                  |
-| **5. Peer-to-Peer Lending**        | Individual Investors via Platforms           | Loan Amount Requested      | Monthly                   | Typically 3-5 years               | Fixed Payments                            | Unsecured               | Interest rates based on credit risk, platform fees                 | Personal loans, debt consolidation    | Online platforms                     |
-| **6. Pay in 4 Installments**       | BNPL Provider                                | Transaction-based          | Every 2 Weeks             | Typically 6 Weeks                 | Four Equal Payments                       | Unsecured               | Typically no interest, possible late fees                          | Retail purchases                      | At point of sale (online/in-store)   |
-| **7. 56 Loan / 9 13 Loan**         | Lenders                                      | Fixed Amount               | Lump Sum or Periodic      | 56 Days or 9-13 Months            | Fixed Payment                             | Likely Unsecured        | May have fees and interest                                         | Short to medium-term financing        | Online, in-store                     |
-| **8. Title Loans**                 | Title Lenders                                | Based on Vehicle Value     | Lump Sum or Installments  | Short-term (typically 30 days)    | Lump Sum or Fixed Payments                | Secured (Vehicle Title) | Very high interest rates, fees                                     | Short-term cash needs                 | Storefronts, online                  |
-| **9. Store Cards**                 | Issuing Bank or Store                        | Revolving Credit           | Monthly                   | Open-ended                        | Minimum Payment                           | Unsecured               | High interest rates, possible fees                                 | Purchases at specific store           | In-store applications, online        |
-| **10. Personal Loans**             | Banks, Credit Unions, Online Lenders         | Fixed Loan Amount          | Monthly                   | 1-5 Years or more                 | Fixed Payments                            | Secured or Unsecured    | Fixed or variable interest rates, origination fees                 | Debt consolidation, large purchases   | Banks, online applications           |
-| **11. Secured Loans**              | Banks, Lenders                               | Based on Collateral Value  | Monthly                   | Varies (depends on loan type)     | Fixed Payments                            | Secured                 | Lower interest rates due to collateral, possible fees              | Auto loans, mortgages, large purchases | Banks, dealerships, online           |
+- **Interest Rate and Fees (Frontend and Backend; Target User and Risk Management)**: Interest rates not only define the target customer segment but also establish the acceptable margin of error for risk management.
 
----
+## **Comparison of Consumer Finance Products**
 
-**Explanation of Dimensions:**
+| **Characteristics**             | **Credit Card (Revolving)** | **Credit Card Installment Plans** | **Buy Now Pay Later (BNPL)** | **Peer-to-Peer (P2P) Lending** | **Payday Loan** | **Pay in 4** | **56 Loan (Philippines); 9出13归 (Hong Kong)** | **Auto Title Loans** | **Store Credit Cards** | **Personal Loans** | **Secured Personal Loans** |
+|--------------------------------|----------------------------|-----------------------------------|----------------------------|--------------------------------|-----------------|--------------|---------------------------------------------|--------------------|--------------------|------------------|--------------------------|
+| **Source of Fund**             | Issuing Bank               | Issuing Bank                      | Fintech Companies, Merchants | Individual Investors via Online Platforms | Non-Bank Financial Institutions | Fintech Companies, Merchants | Non-Bank Financial Institutions | Specialized Lenders | Retailers/Financial Partners | Banks, Credit Unions, Online Lenders | Banks, Credit Unions |
+| **Limit Type**                 | Revolving                  | Instalment                        | Instalment                 | Term Loan                       | Term Loan       | Instalment   | Instalment                                  | Term Loan          | Revolving           | Term Loan         | Term Loan               |
+| **Repayment Frequency**        | Monthly                    | Monthly                           | Bi-weekly/Monthly          | Monthly                         | Single Payment  | Initial + Bi-weekly | Weekly/Bi-weekly                           | Monthly            | Monthly             | Monthly           | Monthly                 |
+| **Repayment Maturity**         | Revolving (no fixed end date) | Short to Medium-term          | Short-term (weeks to months) | Short to Medium-term           | Very Short-term (1-4 weeks) | 6 weeks | Short-term (1-3 months) | Short to Medium-term | Revolving (no fixed end date) | Medium to Long-term | Medium to Long-term |
+| **Repayment Payment**          | Minimum monthly payment    | Fixed Monthly Payments            | Equal installment payments  | Fixed Monthly Payments          | Lump Sum Payment | 4 Equal Payments (1 upfront + 3 bi-weekly) | Fixed Payments | Fixed Monthly Payments | Minimum Monthly Payment | Fixed Monthly Payments | Fixed Monthly Payments |
+| **Secured or Unsecured**       | Unsecured                  | Unsecured                         | Unsecured                  | Unsecured or Secured            | Unsecured       | Unsecured    | Unsecured                                   | Secured (Vehicle)   | Unsecured           | Unsecured or Secured | Secured                  |
+| **Interest Rate and Fees**     | **Interest Rate:** High<br>**Common Fees:**<br>- Annual Fee<br>- Late Payment Fee<br>- Balance Transfer Fee<br>- Foreign Transaction Fee<br>**Additional Notes:**<br>- Rewards programs may offset some fees for frequent users | **Interest Rate:** Moderate<br>**Common Fees:**<br>- Setup Fee<br>- Late Payment Fee<br>- Early Repayment Fee<br>**Additional Notes:**<br>- Converts large purchases into fixed monthly payments<br>- Lower interest rates compared to revolving credit if paid on schedule<br>- Predictable payment schedule for better budgeting | **Interest Rate:** Zero to Moderate<br>**Common Fees:**<br>- Late Fee<br>- Service Fee<br>- Interest on Extended Terms<br>**Additional Notes:**<br>- Often interest-free if paid on schedule<br>- Higher penalties for missed payments | **Interest Rate:** Moderate<br>**Common Fees:**<br>- Platform Fee<br>- Origination Fee<br>- Late Payment Fee<br>**Additional Notes:**<br>- Rates based on borrower's credit profile<br>- Transparent fee structure<br>- Direct lending between individuals<br>- Flexible terms compared to traditional banks | **Interest Rate:** Very High<br>**Common Fees:**<br>- Flat Fee Based on Loan Amount<br>- Rollover Fee<br>**Additional Notes:**<br>- Extremely high APR<br>- Intended for emergency short-term borrowing | **Interest Rate:** Usually Zero<br>**Common Fees:**<br>- Late Fee<br>- Failed Payment Fee<br>**Additional Notes:**<br>- Interest-free if paid on schedule<br>- First payment at purchase, followed by 3 bi-weekly payments<br>- Simple and transparent payment structure<br>- Growing alternative to traditional credit | **Interest Rate:** Very High<br>**Common Fees:**<br>- Origination Fee<br>- Late Payment Fee<br>**Additional Notes:**<br>- 56 Loan: Borrow 5000, repay 6000 in Philippines<br>- 9出13归: Borrow 9000, repay 13000 in Hong Kong<br>- Popular short-term loan product in Southeast Asia | **Interest Rate:** High<br>**Common Fees:**<br>- Origination Fee<br>- Late Payment Fee<br>**Additional Notes:**<br>- Vehicle title used as collateral<br>- Risk of vehicle repossession on default<br>- Lower rates than unsecured short-term loans | **Interest Rate:** High<br>**Common Fees:**<br>- Annual Fee<br>- Late Payment Fee<br>- Penalty APR<br>**Additional Notes:**<br>- Store-specific rewards and benefits<br>- Generally higher APR than general-purpose credit cards | **Interest Rate:** Low to Moderate<br>**Common Fees:**<br>- Origination Fee<br>- Prepayment Fee<br>- Late Payment Fee<br>**Additional Notes:**<br>- Rate depends on credit score and security<br>- Longer terms available<br>- More formal underwriting process | **Interest Rate:** Low<br>**Common Fees:**<br>- Origination Fee<br>- Late Payment Fee<br>**Additional Notes:**<br>- Collateral reduces interest rate<br>- Common collateral includes savings accounts, CDs, or vehicles<br>- Lower risk for lenders |
+| **Use Cases**                  | Everyday purchases, Building credit | Large purchases, Budget Management | Online shopping, Retail purchases | Personal Loans, Debt Consolidation | Emergency Expenses | Online Shopping, Small-Medium Purchases | Emergency Expenses | Emergency Expenses | Store-specific Purchases | Large Purchases, Debt Consolidation | Large Purchases, Debt Consolidation |
+| **Sales Channel**              | Online, Bank Branches, Retail Partners | Online, Bank Branches, Retail Partners | E-commerce Platforms, Retail Stores | Online P2P Platforms | Online, Physical Stores | E-commerce Sites, Retail Partners | Online, Physical Stores | Physical Stores | Retail Stores, Online | Online, Bank Branches | Bank Branches, Online |
 
-- **Source of Fund:** The entity providing the capital for the loan or credit.
-- **Limit Type:** How the borrowing limit is determined (e.g., revolving credit line, fixed loan amount).
-- **Repayment Frequency:** How often payments are due (e.g., monthly, bi-weekly).
-- **Maturity:** The duration of the loan or credit agreement.
-- **Payment Type:** The nature of payments (e.g., fixed installments, minimum payments, lump sum).
-- **Secured/Unsecured:** Indicates whether collateral is required.
-- **Interest Rate & Fees:** Costs associated with borrowing, including interest rates and various fees.
-- **Use Cases:** Common purposes for which the product is used.
-- **Sales Channel:** How and where the product is offered to consumers.
 
----
+## Supplementary Notes on Credit Card Model
 
-**Notes:**
+### Three-Party vs Four-Party Credit Card Models
 
-- **Credit Cards (4-Party vs. 3-Party Models):**
-  - *4-Party Model:* Involves the cardholder, merchant, issuing bank, and acquiring bank (e.g., Visa, MasterCard).
-  - *3-Party Model:* Involves the cardholder, merchant, and issuer who also processes transactions (e.g., American Express).
+The credit card industry operates primarily under two main models: the three-party model (closed loop) and the four-party model (open loop).
 
-- **BNPL and Pay in 4 Installments:**
-  - Both allow consumers to split purchases into smaller, interest-free payments.
-  - BNPL may offer various installment plans, while "Pay in 4" specifically refers to splitting payments into four installments.
+#### Three-Party Model (Closed Loop)
 
-- **P2P (Person-to-Person Loans) vs. Peer-to-Peer Lending:**
-  - *P2P Loans:* Informal loans between individuals, often without a formal platform.
-  - *Peer-to-Peer Lending:* Formal loans facilitated by online platforms connecting borrowers with individual investors.
+In a three-party model, the key parties are:
 
-- **56 Loan / 9 13 Loan:**
-  - Specific terms may vary by region or lender.
-  - "56 Loan" could imply a loan with a 56-day term.
-  - "9 13 Loan" might refer to loans with maturities between 9 and 13 months.
+1. The cardholder (consumer)
+2. The merchant
+3. The card issuer/network (single entity)
 
-- **Title Loans:**
-  - Secured by the borrower's vehicle title.
-  - Failure to repay can result in the lender seizing the vehicle.
+Examples include American Express and Discover, where the company acts as both the card issuer and payment network. Key characteristics:
 
-- **Store Cards:**
-  - Similar to credit cards but typically can only be used at the issuing store.
-  - May offer store-specific rewards or discounts.
+- Direct relationships with both cardholders and merchants
+- Full control over fees and terms
+- Typically higher merchant fees but also higher cardholder rewards
+- More integrated customer experience
+- Limited acceptance compared to four-party networks
 
-- **Personal Loans vs. Secured Loans:**
-  - *Personal Loans* are often unsecured and used for various personal expenses.
-  - *Secured Loans* require collateral (e.g., a car or house) and generally offer lower interest rates.
+#### Four-Party Model (Open Loop)
 
----
+In a four-party model, the participants are:
+
+1. The cardholder (consumer)
+2. The merchant
+3. The issuing bank
+4. The acquiring bank/payment network
+
+Examples include Visa and Mastercard networks. Key characteristics:
+
+- Broader merchant acceptance
+- Shared revenue and risks among participants
+- More complex fee structure
+- Greater competition among issuers
+- Network effects benefit all participants
+
+![Visa Four-Party Model|100](visa.png)
