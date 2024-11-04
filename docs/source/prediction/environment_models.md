@@ -1,5 +1,7 @@
 # Creating Models of the Environment (WIP)
 
+Disclaimer: The author is not a machine learning expert. His primary experience is in credit risk management. The theoretical part of this chapter is a note for himself which he found interesting and wants to share with others.
+
 ## Why Supervised Learning Works?
 
 In short, "Low Training Error + Suffient Data Relative to Model Complexity $\implies$ Low Test Error". 
@@ -108,6 +110,21 @@ The proof follows these key steps:
 This proves that with high probability, the difference between test and training error is bounded by a term that depends on the model complexity ($|\mathcal{F}|$) and training set size ($|S|$).
 
 In other words, **supervised learning _must_ work on the _SAME_ distribution** for these bounds to hold.
+
+## The Bias-Complexity Tradeoff
+
+In short, when choosing the hypothesis class $\mathcal{F}$, we face a tradeoff, between a larger, or more complex, class that is more likely to have a small approximation error, and a more restrictive, or simpler, class that would guarantee that the estimation error is small. **Prior knowledge about the problem restricts the hypothesis class.** For example, in credit risk modeling, if we know that the relationship between a borrower's debt-to-income ratio and default probability is generally monotonic (higher ratios lead to higher default risk), we can restrict our hypothesis class to monotonic functions only. This prior knowledge eliminates many possible hypotheses that would violate this relationship, reducing model complexity while maintaining or improving real-world performance.
+
+**Theorem. (No-Free-Lunch)** Let $A$ be any learning algorithm for the task of binary classification with respect to the 0–1 loss over a domain $\mathcal{X}$. Let $m$ be any number smaller than $|\mathcal{X}|/2$, representing a training set size. Then, there exists a distribution $\mathcal{D}$ over $\mathcal{X} \times \{0,1\}$ such that:
+
+1. There exists a function $f : \mathcal{X} \rightarrow \{0,1\}$ with $L_{\mathcal{D}}(f) = 0$.
+2. With probability of at least $1/7$ over the choice of $S \sim \mathcal{D}^m$, we have that $L_{\mathcal{D}}(A(S)) \geq 1/8$.
+
+This theorem states that for every learner, there exists a task on which it fails, even though that task can be successfully learned by another learner (I intentionally skipped the details explaination and proof here. For more details, please refer to the Reference section below).
+
+## Feature Selection
+
+So far, we have discussed abstract model of learning, in which the prior knowledge utilized by the learner is fully encoded by the choice of the hypothesis class $\mathcal{F}$. However, there is another modeling choice: how do we represent the instance space $\mathcal{X}$?
 
 ## Excels and Tabular Data
 
