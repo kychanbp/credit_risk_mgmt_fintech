@@ -88,6 +88,7 @@ The proof follows these key steps:
    $$
 
 5. **Solve for $\epsilon$**
+
    $$
    \begin{align*}
    e^{-2|S|\epsilon^2} &= \frac{\delta}{2|\mathcal{F}|} \\

@@ -1,5 +1,9 @@
 # Common Product Structures in Consumer Finance
 
+**Date:** October 2024
+
+**Last Update:** October 2024
+
 ## Consideration of Product Structures
 
 Financial products require a careful balance between business volume (revenue) and risk (cost) from inception, which differs from typical consumer products where business models can be optimized post-launch. Establishing the right product structure is fundamental to credit business sustainability. This is particularly important because financial products have universal appeal when perceived as "free money," yet their structure - including repayment frequency and maturity - directly impacts customers' ability and likelihood to repay. Therefore, thoughtful product design that aligns business objectives with risk management is essential from the start.

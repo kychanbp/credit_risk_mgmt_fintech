@@ -8,6 +8,8 @@ Readers should exercise caution when applying this material to their own circums
 
 That being said, the author believes that [The Art and Science of Decision Making](fundamentals/decision_making.md) and [Fundamentals of Bonds and Interest Rates](fundamentals/bonds_interest_rates.md) are universal concepts that apply across various business models and product designs.
 
+Another significant limitation is the author's limited knowledge about handling regulatory requirements. 
+
 The author still has questions about the following topics:
 
 - **Definition of Risk**: While common industry metrics are presented in [Commonly Used Risk Metrics](key_objective/risk_metrix.md), why is risk typically defined as a ratio of loss to exposure? What is the fundamental meaning of risk?
