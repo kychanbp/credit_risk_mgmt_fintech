@@ -66,6 +66,7 @@ The proof follows these key steps:
 
 2. **Hoeffding's Inequality**
    For a single hypothesis $f$:
+
    $$
    \Pr_S[|\text{Test}_D(f) - \text{Train}_S(f)| > \epsilon] \leq 2e^{-2|S|\epsilon^2}
    $$
@@ -76,12 +77,14 @@ The proof follows these key steps:
 
 3. **Union Bound**
    - Apply to all hypotheses $f \in \mathcal{F}$:
+
    $$
    \Pr_S[\exists f \in \mathcal{F}: |\text{Test}_D(f) - \text{Train}_S(f)| > \epsilon] \leq |\mathcal{F}| \cdot 2e^{-2|S|\epsilon^2}
    $$
 
 4. **Set Failure Probability**
    - Let right side equal $\delta$:
+
    $$
    |\mathcal{F}| \cdot 2e^{-2|S|\epsilon^2} = \delta
    $$
