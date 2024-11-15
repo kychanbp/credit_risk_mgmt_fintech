@@ -1,5 +1,9 @@
 # Creating Models of the Environment
 
+**Date:** October 2024
+
+**Last Update:** October 2024
+
 Disclaimer: The author's primary expertise is in credit risk management rather than machine learning. The theoretical content in this chapter represents personal notes that he found interesting and wishes to share with others.
 
 ## Why Does Supervised Learning Work?

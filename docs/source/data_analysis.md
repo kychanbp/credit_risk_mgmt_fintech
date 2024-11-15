@@ -1,5 +1,9 @@
 # General Data Analysis Techniques
 
+**Date:** November 2024
+
+**Last Update:** November 2024
+
 This article presents my personal perspective on approaching data analysis. While there are many methodologies and best practices in the field, the following framework represents my thoughts on providing a structured approach to guide your analytical process. These views are based on my experience and should be taken as one practitioner's opinion rather than definitive guidance.
 
 ## Objective
