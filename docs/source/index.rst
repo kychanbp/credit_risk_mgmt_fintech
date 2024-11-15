@@ -22,7 +22,7 @@ I publish this material publicly to ensure it is general and applicable to a wid
    Post Loan Account Management (WIP) <post_loan_management/index>
    The Upstream and Downstream of Credit Risk Management (WIP) <upstream_downstream/index>
    The Role of Data in Credit Risk Management (WIP) <data_role.md>
-   General Data Analysis Techniques (WIP) <data_analysis.md>
+   General Data Analysis Techniques <data_analysis.md>
    Core Infrastructure for Credit Risk Management (WIP) <infrastructure.md>
    Launching a Product in New Market (WIP) <new_market.md>
    Commonly Asked Questions (WIP) <faq.md>
