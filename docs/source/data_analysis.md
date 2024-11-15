@@ -57,6 +57,7 @@ Use this checklist to guide your action generation process:
 - Does the action have material impact on the success criteria?
 - Can you implement the action, considering practical constraints and stakeholders?
 - Are there potential unintended consequences?
+- Does the action demonstrate statistically significant improvement compared to taking no action or making random decisions?
 
 While deriving actions may seem straightforward once you understand the problem, many analysts hesitate to make recommendations due to the stress of potential negative consequences. For example, in credit risk management, your proposed actions could impact a multi-billion dollar portfolio. This highlights an important truth: **Decision-making requires both analysis and courage.**
 
