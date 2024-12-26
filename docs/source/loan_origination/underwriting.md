@@ -1,5 +1,9 @@
 # Underwriting or Loan Origination
 
+**Date:** December 2024
+
+**Last updated:** December 2024
+
 ## Introduction
 
 Underwriting, also known as loan origination, is the process of assessing a borrower's creditworthiness and establishing the terms of a loan during the initial stages of the loan process. The specific scope of underwriting can differ among lenders. For instance, some may consider loans originated within the first month as part of the origination process, while treating subsequent loans as post-loan management. Others might delineate the process based on the breakeven point in a user's lifecycle.
