@@ -1,4 +1,63 @@
-# Underwriting (WIP)
+# Underwriting or Loan Origination
+
+## Introduction
+
+Underwriting, also known as loan origination, is the process of assessing a borrower's creditworthiness and establishing the terms of a loan during the initial stages of the loan process. The specific scope of underwriting can differ among lenders. For instance, some may consider loans originated within the first month as part of the origination process, while treating subsequent loans as post-loan management. Others might delineate the process based on the breakeven point in a user's lifecycle.
+
+The core objective of underwriting is to maximize the number of users and loans originated, while simultaneously minimizing cumulative losses throughout the user lifecycle. While profitability is the ultimate goal, the number of users and loans originated serves as an early indicator of the underwriting policy's success. Although the loan amount per user/loan is also a significant factor, it is secondary to the number of users/loans originated. Provided that the limit offered is competitive and user take-up rates remain consistent, the limit can be increased later during the post-loan management phase.
+
+## Viewing Underwriting Using Decision Making Framework
+
+- **Action Space:** The set of possible actions, such as user selection (approving or rejecting a loan application) and loan parameters (setting the credit limit, interest rate, and loan tenure).
+- **State Space:** The range of potential outcomes, including default or non-default within a defined observation period.
+- **Probability:** The likelihood of each outcome occurring.
+- **Outcome and Utility:** The resulting profit or loss from approved loans, encompassing interest income, fees, and credit losses.
+
+## The Iterative Process of Underwriting
+
+### Initial Policy
+
+Upon launching a new product, the initial underwriting policy is typically established using expert knowledge and competitor analysis. This initial policy often takes the form of a simple, rule-based system, designed to gather preliminary data and assess market viability.
+
+This "initial policy" evolves into the current policy through iterative refinement. By evaluating the performance of each policy version, we can determine its effectiveness in achieving the desired objectives.
+
+### Evaluation
+
+Policy improvements can generally be categorized into three areas:
+
+1. Increasing the overall approval rate while maintaining a constant level of risk and average loan amount per user/loan.
+2. Reducing risk while maintaining a constant approval rate and average loan amount per user/loan.
+3. Increasing the average loan amount per user/loan while maintaining a constant approval rate and level of risk.
+
+To analyze policy performance, we follow the structure outlined in [General Data Analysis Techniques](../data_analysis.md):
+
+1. **Clearly define the objective:** Does the current policy outperform the previous policy in any of the three areas mentioned above?
+2. **Clearly define the metrics:**
+    1. Risk: First Payment Default (FPD), 3-Month First Payment Default (3FPD), Vintage Analysis
+    2. Approval rate: Number of approved users divided by the total number of unique applications.
+    3. Loan amount per user/loan: Average loan amount per approved user/loan.
+    4. For a comprehensive list of metrics, refer to [Commonly Used Risk Metrics](../key_objective/risk_metrics.md).
+3. **Hypothesis:**
+    1. During policy evaluation, various scenarios (sub-problems) may arise. For example, risk may increase, the approval rate may decrease, or the loan amount per user/loan may decrease.
+    2. For each identified sub-problem, formulate a hypothesis and validate it using the methods described in [General Data Analysis Techniques](../data_analysis.md).
+
+### Iteration and Testing
+
+Following the identification of the root cause of policy performance-whether an improvement or a degradation-the policy can be iterated upon. This involves either reinforcing the promising direction or pivoting to a new approach.
+
+Underwriting policies often employ a layered structure: first, a series of hard rejection rules are applied; then, user segmentation is performed; and finally, model-based segmentation is used. Subsequently, each user is assigned a risk tier. The credit limit is then determined based on the assigned risk tier, as well as other factors such as the user's income.
+
+Policy iteration is often guided by the following questions and observations that arise during the evaluation phase:
+
+- How can we improve our risk model to increase approval rates and/or reduce risk?
+- What additional data sources can we leverage to enhance our risk model?
+- Could relaxing our hard rejection rules lead to a higher approval rate?
+- How can we refine user segmentation to provide more tailored experiences for different user groups?
+- Would increasing the credit limit improve user conversion rates?
+- Would offering longer loan tenures increase user conversion rates and/or the average loan amount per user?
+- How would adjusting interest rates impact user conversion rates and risk?
+
+After the policy is iterated, it is tested again using the same process as the initial policy evaluation.
 
 ## User Segmentation in Credit Risk Policy
 
@@ -56,24 +115,10 @@ In my experience, segmentation is most valuable when a robust risk model is eith
 
 Segmentation is an iterative process; a simple initial segmentation can be refined based on subsequent testing results.
 
----
+## Conclusion
 
-## Viewing Underwriting as a RL Problem
+This document outlines the underwriting process, emphasizing its iterative nature and the importance of user segmentation. Underwriting involves assessing creditworthiness and setting loan terms, with the goal of maximizing user and loan origination while minimizing losses. The process is viewed through a decision-making framework, considering actions, states, probabilities, and outcomes. The initial policy, often rule-based, evolves through evaluation and iteration, focusing on improving approval rates, reducing risk, and increasing loan amounts. User segmentation is crucial, especially when robust risk models are lacking, allowing for tailored actions and improved risk estimation. Segmentation is an iterative process, starting simple and refining based on testing results.
 
-For a detailed discussion of reinforcement learning in credit risk management, see [Decision Making](../fundamentals/decision_making.md).
 
-|Component|Description|
-|---------|-----------|
-|Objective|Maximize the long-term cumulative profitability of the loan portfolio while maintaining acceptable risk levels|
-|Reward Signal|The realized profit or loss from approved loans, including interest income, fees, and credit losses|
-|State Space|Applicant characteristics (demographics, financials, credit history) and risk assessment metrics (application score, bureau data)|
-|Action Space|Lending decisions (approve/reject) and loan parameters (credit limit, interest rate, tenure)|
-|Policy|A decision-making framework that maps applicant states to lending actions|
 
-### Trial-and-Error Search
 
-The underwriting process involves significant amount of trial-and-error search. Since new applicants have no relationship with the company, it is more "clean" to test new underwriting criteria on them compared to existing customers.
-
-While there are theoretically infinite possible underwriting criteria to evaluate, effective search requires a systematic approach guided by data analysis, historical performance, and competitive intelligence. Similar to gradient descent optimization in mathematics, successful underwriting policy development relies on building intuition about promising directions to explore. This intuition comes from deep domain expertise and experience analyzing lending outcomes - skills that are challenging to codify or teach directly.
-
-## Typical Analysis Patterns
