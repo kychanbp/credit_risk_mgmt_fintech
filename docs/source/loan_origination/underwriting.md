@@ -12,7 +12,7 @@ The decision-making framework involves several key components:
 
 - **Action:** The range of choices available to the decision-maker (e.g., approve or reject a loan application).
 - **States of the World:** The potential outcomes or scenarios that could occur (e.g., a borrower defaults or does not default).
-- **Outcome:** The consequences of a specific action given a particular state of the world (e.g., a gain of $1000 or a loss of $1000).
+- **Outcome:** The consequences of a specific action given a particular state of the world (e.g., a gain of 1000 or a loss of 1000).
 - **Probability:** The likelihood of each state of the world occurring.
 - **Utility:** A measure of the desirability of each outcome, which in credit risk is often the financial result of the decision.
 
