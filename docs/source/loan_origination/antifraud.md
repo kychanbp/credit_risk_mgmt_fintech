@@ -1,5 +1,9 @@
 # Antifraud
 
+**Date**: December 2024
+
+**Last Updated**: December 2024
+
 This document is written from the perspective of someone with a background in underwriting and loan origination. As such, it may not be exhaustive for seasoned antifraud professionals. Furthermore, the specific types of fraud encountered are highly dependent on the product structure and its use cases. For example, embedded finance products, such as Buy Now Pay Later (BNPL) options on e-commerce platforms, are generally less susceptible to merchant fraud compared to open market products like credit cards.
 
 This document outlines a mental model for approaching antifraud, covering key aspects such as objectives, common fraud types, and preventative measures.
