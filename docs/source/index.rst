@@ -18,7 +18,7 @@ I publish this material publicly to ensure it is general and applicable to a wid
    Key Objectives and Its Componets <key_objective/index>
    Prediction Into the Future <prediction/index>
    Typical Product Structures in Consumer Finance <product_structures.md>
-   Loan Origination (WIP) <loan_origination/index>
+   Loan Origination <loan_origination/index>
    Post Loan Account Management (WIP) <post_loan_management/index>
    The Upstream and Downstream of Credit Risk Management (WIP) <upstream_downstream/index>
    The Role of Data in Credit Risk Management (WIP) <data_role.md>
