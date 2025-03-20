@@ -92,6 +92,16 @@ Consider these tips for effectively communicating analytical findings:
 
 The goal is not just sharing information, but driving understanding and action. By following these principles, you can more effectively translate complex analyses into clear, actionable insights for stakeholders.
 
+## Analysis Hygiene
+
+Beyond the general data analysis framework, implementing these additional hygiene practices will ensure the quality and integrity of your analysis:
+
+- Establish a consistent analytical base: Begin with a well-defined group of entities relevant to the problem—such as a fixed pool of customers, loans, or accounts. Maintain this base throughout your analysis for consistency. When narrowing focus to specific segments, clearly document the filtering process at the outset. Generally, it's advisable to start with a broader base and systematically refine it rather than beginning with an overly narrow scope.
+
+- Apply the MECE principle: MECE (Mutually Exclusive and Collectively Exhaustive) ensures your analysis is both comprehensive and non-redundant. When segmenting your analytical base, verify that each segment is distinct (no overlaps) while together they encompass the entire population of interest. This approach prevents both double-counting and overlooking relevant data points.
+
+- Maintain dimensional consistency: Once your base is established, ensure consistent dimensions and units throughout your analysis. For example, when analyzing default rates, apply the same definition of "default" across all segments and time periods. When expressing relationships mathematically, verify that units remain consistent throughout your equations and comparisons.
+
 ## Preparing For the Next Problem
 
 After solving each problem, it's valuable to engage in deliberate reflection on your analytical process. Consider:
