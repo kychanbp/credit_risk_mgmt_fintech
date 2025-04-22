@@ -25,6 +25,7 @@ I publish this material publicly to ensure it is general and applicable to a wid
    General Data Analysis Techniques <data_analysis.md>
    Core Infrastructure for Credit Risk Management (WIP) <infrastructure.md>
    Launching a Product in New Market (WIP) <new_market.md>
+   Practical Guides <practical_guides/index>
    Commonly Asked Questions (WIP) <faq.md>
    Knowing What We Don't Know <unknowns.md>
    Useful Resources <resources.md>
