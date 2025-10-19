@@ -23,7 +23,7 @@ I publish this material publicly to ensure it is general and applicable to a wid
    The Upstream and Downstream of Credit Risk Management (WIP) <upstream_downstream/index>
    The Role of Data in Credit Risk Management <data_role.md>
    General Data Analysis Techniques <data_analysis.md>
-   Core Infrastructure for Credit Risk Management (WIP) <infrastructure.md>
+   Core Infrastructure for Credit Risk Management (WIP) <infrastructure/index>
    Launching a Product in New Market (WIP) <new_market.md>
    Practical Guides <practical_guides/index>
    Commonly Asked Questions (WIP) <faq.md>
